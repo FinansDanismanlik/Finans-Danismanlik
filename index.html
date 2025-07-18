@@ -9,21 +9,37 @@
   <style>
     /* Reset & Base */
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Montserrat', sans-serif; background:#0d1b2a; color:#e1e1e1; line-height:1.6; }
+    body {
+      font-family:'Montserrat', sans-serif;
+      /* Arkaplan görseli iptal edildi, koyu arkaplan rengi */
+      background: var(--dark-bg);
+      color:#e1e1e1;
+      line-height:1.6;
+    }
     a { color:inherit; text-decoration:none; }
     ul { list-style:none; }
     .container { max-width:1200px; margin:0 auto; padding:0 20px; }
 
-    /* Color Palette */
+    /* Renk Tanımları */
     :root {
       --dark-bg: #0d1b2a;
       --mid-bg:  rgba(13,27,42,0.8);
-      --gold:    #d4af37;
+      --gold:    #f0c75e;   /* Daha açık altın sarısı */
       --white:   #f0f0f0;
       --text:    #ddd;
     }
 
-    /* Header & Hero */
+    /* --- Üst Banner --- */
+    .top-banner {
+      background: var(--gold);
+      color: var(--dark-bg);
+      text-align: center;
+      padding: 12px 0;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    /* Hero Bölümü */
     .hero {
       position: relative;
       background: url('https://via.placeholder.com/1600x800?text=Dünya+Haritası+Gece') center/cover no-repeat;
@@ -63,13 +79,11 @@
       transition: background .3s;
     }
     .hero-content .cta-button:hover {
-      background: #c49e2e;
+      background: rgba(240,199,94,0.8);
     }
 
-    /* Sections */
-    section {
-      padding: 80px 0;
-    }
+    /* Genel Section Stilleri */
+    section { padding: 80px 0; }
     .section-title {
       text-align: center;
       font-size: 2rem;
@@ -78,22 +92,23 @@
       color: var(--white);
     }
 
-    /* Why Choose Us */
+    /* --- Neden Bizi Tercih Edin? (3×2 Grid) --- */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
     }
     .feature-card {
       background: var(--mid-bg);
-      border: 1px solid rgba(212,175,55,0.3);
+      border: 2px solid var(--gold);
       padding: 30px 20px;
       border-radius: 12px;
-      transition: transform .3s, box-shadow .3s;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
     }
     .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 0 12px var(--gold);
+      border-color: var(--white);
     }
     .feature-card h3 {
       font-size: 1.3rem;
@@ -102,11 +117,11 @@
       color: var(--gold);
     }
     .feature-card p {
-      color: var(--text);
+      color: var(--white);  /* İç metinler beyaz yapıldı */
       font-size: .95rem;
     }
 
-    /* Investment Areas */
+    /* Yatırım Alanları */
     .areas-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
@@ -114,7 +129,7 @@
     }
     .area-card {
       background: var(--mid-bg);
-      border: 1px solid rgba(212,175,55,0.3);
+      border: 1px solid rgba(240,199,94,0.3); /* Güncellenmiş hafif altın */
       padding: 30px 20px;
       border-radius: 12px;
       transition: transform .3s, box-shadow .3s;
@@ -129,20 +144,12 @@
       margin-bottom: 15px;
       color: var(--gold);
     }
-    .area-card p {
-      color: var(--text);
-      font-size: .95rem;
-      margin-bottom: 20px;
-    }
-    .area-card ul {
-      list-style: none;
-      padding-left: 0;
-    }
     .area-card ul li {
       position: relative;
       padding-left: 20px;
       margin-bottom: 10px;
       color: var(--text);
+      font-size: .95rem;
     }
     .area-card ul li::before {
       content: '';
@@ -153,7 +160,7 @@
       border-radius: 50%;
     }
 
-    /* Call-to-Action */
+    /* Call-to-Action Bölümü */
     .cta-section {
       background: var(--dark-bg);
       text-align: center;
@@ -177,11 +184,11 @@
       border-radius: 50px;
       font-weight: 600;
       transition: background .3s;
-      margin-top: 20px;
       display: inline-block;
+      margin-top: 20px;
     }
     .form-button:hover {
-      background: #c49e2e;
+      background: rgba(240,199,94,0.8);
     }
 
     /* Footer */
@@ -196,19 +203,27 @@
       text-decoration: none;
       font-weight: 500;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
 
     /* Responsive */
+    @media (max-width: 992px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
       .hero-content h1 { font-size: 2.2rem; }
       .hero-content p  { font-size: 1rem; }
       .section-title  { font-size: 1.8rem; }
+      .top-banner { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Üst Banner -->
+  <div class="top-banner">
+    9.500₺’den fiyatlarla günlük %5 Kâr Kaçırılmayacak fırsat!
+  </div>
 
   <!-- Hero -->
   <section class="hero">
@@ -230,7 +245,7 @@
         </div>
         <div class="feature-card">
           <h3>Derin Piyasa Analizi</h3>
-          <p>Teknik ve temel analizler ile en doğru giriş-çıkış noktalarını belirliyoruz.</p>
+          <p>Teknik ve temel analizler ile en doğru giriş‑çıkış noktalarını belirliyoruz.</p>
         </div>
         <div class="feature-card">
           <h3>AI Destekli Ticaret</h3>
@@ -325,12 +340,9 @@
 
   <!-- Modal & Form Script -->
   <script>
-    /* Modal logic as before */
-    const modals = [ /* ... tanımlar ... */ ];
-    function openModal(id){ /* ... */ }
-    function closeModal(id){ /* ... */ }
-    window.onclick = e => { /* ... */ };
-    function openForm(){ window.open('https://forms.gle/xXvnXpErUDoouitY7','_blank'); }
+    function openForm(){
+      window.open('https://forms.gle/xXvnXpErUDoouitY7','_blank');
+    }
   </script>
 </body>
 </html>
