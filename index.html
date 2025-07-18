@@ -4,370 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ücretsiz Yatırım Danışmanlığı - Profesyonel Rehberlik</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #f0f2f5; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* Top Banner */
+        .top-banner { background-color: #e6f0ff; color: #00264d; text-align: center; padding: 10px 0; font-size: 1.1em; font-weight: 600; }
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255,107,107,0.4);
-        }
-
-        .cta-button:hover {
-            background: #ff5252;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,107,107,0.6);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #333;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
+        .hero { background-color: #003366; color: #fff; padding: 80px 0; text-align: center; position: relative; }
+        .hero h1 { font-size: 2.8em; margin-bottom: 10px; font-weight: 600; }
+        .hero p { font-size: 1.1em; max-width: 600px; margin: 0 auto 20px; }
+        .cta-button { background-color: #0066cc; color: #fff; padding: 12px 32px; border-radius: 50px; font-size: 1em; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s ease; }
+        .cta-button:hover { background-color: #005bb5; }
+        section { padding: 60px 0; }
+        .section-title { text-align: center; font-size: 2em; margin-bottom: 30px; color: #00264d; font-weight: 600; }
+        /* Feature Cards */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 30px; }
+        .feature-card { background-color: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { font-size: 2.5em; margin-bottom: 15px; color: #0066cc; }
+        .feature-card h3 { font-size: 1.2em; margin-bottom: 10px; color: #00264d; }
+        .feature-card p { font-size: 0.95em; color: #555; }
         /* Investment Areas */
-        .investment-areas {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .areas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .area-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .area-card:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-        }
-
-        .area-icon {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-
+        .areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 30px; }
+        .area-card { background-color: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.04); text-align: center; transition: border-color 0.3s ease, transform 0.3s ease; border: 2px solid transparent; cursor: pointer; }
+        .area-card:hover { border-color: #0066cc; transform: translateY(-3px); }
+        .area-icon { font-size: 2em; margin-bottom: 15px; color: #004080; }
+        .area-card h3 { font-size: 1.1em; margin-bottom: 8px; color: #00264d; }
+        .area-card p { font-size: 0.9em; color: #555; }
+        /* Modals */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7); }
+        .modal-content { background: linear-gradient(135deg, #1f325d, #3a4a8f); margin: 10% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 550px; position: relative; color: #fff; }
+        .modal-content h3 { margin-bottom: 10px; color: #ffd54f; font-size: 1.5em; }
+        .modal-content p { margin-bottom: 15px; font-size: 1em; }
+        .modal-content ul { margin-left: 20px; margin-bottom: 15px; }
+        .modal-content li { margin-bottom: 8px; }
+        .close { position: absolute; top: 15px; right: 20px; font-size: 1.5em; color: #ffd54f; cursor: pointer; }
+        /* Graph SVG */
+        .modal-graphic { width: 100%; height: 150px; margin-bottom: 20px; }
         /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .form-button {
-            display: inline-block;
-            background: white;
-            color: #ff6b6b;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
-        }
-
-        .form-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,255,255,0.4);
-        }
-
+        .cta-section { background-color: #e6f0ff; text-align: center; }
+        .cta-section h2 { color: #00264d; margin-bottom: 15px; }
+        .form-button { background-color: #00264d; color: #fff; padding: 12px 32px; border-radius: 50px; font-size: 1em; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s ease; }
+        .form-button:hover { background-color: #001f4d; }
+        /* Footer */
+        footer { background-color: #00264d; color: #cfd8e3; padding: 30px 0; text-align: center; }
+        footer a { color: #ffd54f; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-
-            .hero p {
-                font-size: 1.1em;
-            }
-
-            .section-title {
-                font-size: 2em;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .areas-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Floating Elements */
-        .floating-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-
-        .shape1 {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape2 {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 5s;
-        }
-
-        .shape3 {
-            width: 60px;
-            height: 60px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
+        @media (max-width:768px) { .features-grid, .areas-grid { display: block; } }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="floating-shapes">
-            <div class="shape shape1"></div>
-            <div class="shape shape2"></div>
-            <div class="shape shape3"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Ücretsiz Yatırım Danışmanlığı</h1>
-                <p>Profesyonel rehberlik ile yatırım hedeflerinize ulaşın. Borsa, kripto, forex ve emtia piyasalarında uzman danışmanlarımızdan ücretsiz destek alın.</p>
-                <a href="#investment-form" class="cta-button">Ücretsiz Danışmanlık Al</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Neden Bizi Seçmelisiniz?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Kişiselleştirilmiş Strateji</h3>
-                    <p>Risk profilinize ve hedeflerinize göre özel yatırım stratejileri geliştiriyoruz.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Profesyonel Analiz</h3>
-                    <p>Piyasa analizleri ve teknik değerlendirmeler ile doğru kararlar almanızı sağlıyoruz.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Hızlı Başlangıç</h3>
-                    <p>Yeni başlayanlar için adım adım rehberlik, deneyimliler için ileri seviye stratejiler.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Risk Yönetimi</h3>
-                    <p>Kayıpları minimize etmek için etkili risk yönetimi teknikleri öğretiyoruz.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Areas -->
-    <section class="investment-areas">
-        <div class="container">
-            <h2 class="section-title">Yatırım Alanlarımız</h3>
-            <div class="areas-grid">
-                <div class="area-card">
-                    <div class="area-icon">📈</div>
-                    <h3>Borsa (Hisse Senedi)</h3>
-                    <p>BIST ve uluslararası borsalarda hisse senedi yatırımı danışmanlığı</p>
-                </div>
-                <div class="area-card">
-                    <div class="area-icon">₿</div>
-                    <h3>Kripto Paralar</h3>
-                    <p>Bitcoin, Ethereum ve diğer kripto paralar için uzman rehberliği</p>
-                </div>
-                <div class="area-card">
-                    <div class="area-icon">💱</div>
-                    <h3>Forex</h3>
-                    <p>	Döviz piyasalarında işlem yapmak için profesyonel stratejiler</p>
-                </div>
-                <div class="area-card">
-                    <div class="area-icon">🥇</div>
-                    <h3>Emtia</h3>
-                    <p>Altın, gümüş, petrol ve diğer emtia yatırımları</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="investment-form">
-        <div class="container">
-            <h2>Yatırım Yolculuğunuza Başlayın</h2>
-            <p>Sadece birkaç dakika içerisinde size özel yatırım stratejinizi belirleyin. Uzman danışmanlarımız sizinle iletişime geçsin.</p>
-            <a href="#" class="form-button" onclick="openForm()">Formu Doldur</a>
-        </div>
-    </section>
-
+    <div class="top-banner">Finans Danışmanlık ve Ücretsiz danışman desteği</div>
+    <section class="hero"><div class="container"><h1>Ücretsiz Yatırım Danışmanlığı</h1><p>Profesyonel rehberlik ile yatırım hedeflerinize ulaşın. Borsa, kripto, forex ve emtia piyasalarında uzman danışmanlarımızdan ücretsiz destek alın.</p><a href="#investment-form" class="cta-button">Ücretsiz Danışmanlık Al 🚀</a></div></section>
+    <section class="features" id="features"><div class="container"><h2 class="section-title">Neden Bizi Seçmelisiniz? 💡</h2><div class="features-grid"><div class="feature-card"><div class="feature-icon">🎯</div><h3>Kişiselleştirilmiş Strateji</h3><p>Risk profilinize ve hedeflerinize göre özel yatırım stratejileri geliştiriyoruz.</p></div><div class="feature-card"><div class="feature-icon">📊</div><h3>Profesyonel Analiz</h3><p>Piyasa analizleri ve teknik değerlendirmeler ile doğru kararlar almanızı sağlıyoruz.</p></div><div class="feature-card"><div class="feature-icon">🚀</div><h3>Hızlı Başlangıç</h3><p>Yeni başlayanlar için adım adım rehberlik, deneyimliler için ileri seviye stratejiler.</p></div><div class="feature-card"><div class="feature-icon">🛡️</div><h3>Risk Yönetimi</h3><p>Kayıpları minimize etmek için etkili risk yönetimi teknikleri öğretiyoruz.</p></div></div></div></section>
+    <section class="investment-areas" id="investment-areas"><div class="container"><h2 class="section-title">Yatırım Alanlarımız 🚀</h2><div class="areas-grid"><div class="area-card" onclick="openModal('modal-borsa')"><div class="area-icon">📈</div><h3>Borsa (Hisse Senedi)</h3><p>BIST ve uluslararası borsalarda hisse senedi yatırımı danışmanlığı</p></div><div class="area-card" onclick="openModal('modal-kripto')"><div class="area-icon">₿</div><h3>Kripto Paralar</h3><p>Bitcoin, Ethereum ve diğer kripto paralar için uzman rehberliği</p></div><div class="area-card" onclick="openModal('modal-forex')"><div class="area-icon">💱</div><h3>Forex</h3><p>Döviz piyasalarında işlem yapmak için profesyonel stratejiler</p></div><div class="area-card" onclick="openModal('modal-emti')"><div class="area-icon">📊</div><h3>Emtialar</h3><p>Altın, gümüş, petrol ve diğer emtia yatırımları</p></div></div></div></section>
+    <!-- Modals -->
+    <div id="modal-borsa" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-borsa')">&times;</span><svg class="modal-graphic" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="0,80 20,60 40,70 60,50 80,40 100,20" fill="none" stroke="#ffd54f" stroke-width="4"/></svg><h3>🎉 Borsa (Hisse Senedi) 🎉</h3><p><strong>Danışmanlık Soruları:</strong></p><ul><li>Yatırım hedefiniz nedir?</li><li>Risk toleransınız nasıl?</li><li>Hangi sektörlere odaklanmak istersiniz?</li></ul><p><strong>👤 Danışman Yetkinlikleri:</strong> Borsa analizi, teknik ve temel analiz, portföy yönetimi.</p><p><strong>📈 Performans:</strong> Günlük %5 - %7.5 arasında kâr hedefi (1.000 USD'ye kadar hesaplar).<br><strong>📊 Not:</strong> 2024'te TL'deki reel enflasyon %78; biz bu oranın üzerinde getiriler hedefliyoruz.</p></div></div>
+    <div id="modal-kripto" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-kripto')">&times;</span><svg class="modal-graphic" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="0,90 20,70 40,75 60,55 80,45 100,30" fill="none" stroke="#ffd54f" stroke-width="4"/></svg><h3>🚀 Kripto Paralar 🚀</h3><p><strong>Danışmanlık Soruları:</strong></p><ul><li>Hangi coin projelerine ilgi duyuyorsunuz?</li><li>Uzun vadeli mi, kısa vadeli mi yatırım planlıyorsunuz?</li><li>Stop-loss seviyeniz nedir?</li></ul><p><strong>👤 Danışman Yetkinlikleri:</strong> Blockchain analizi, risk yönetimi, piyasa takibi.</p><p><strong>📈 Performans:</strong> Günlük %5 - %7.5 kâr hedefi (1.000 USD'ye kadar hesaplar).</p></div></div>
+    <div id="modal-forex" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-forex')">&times;</span><svg class="modal-graphic" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="0,85 20,65 40,72 60,52 80,42 100,25" fill="none" stroke="#ffd54f" stroke-width="4"/></svg><h3>💱 Forex 💱</h3><p><strong>Danışmanlık Soruları:</strong></p><ul><li>Hangi döviz çiftleri ile işlem yapmak istersiniz?</li><li>Marjin ve kaldıraç tercihiniz nedir?</li><li>Ekonomik takvimde hangi verileri takip edersiniz?</li></ul><p><strong>👤 Danışman Yetkinlikleri:</strong> FX analizi, teknik indikatörler, trend takibi.</p><p><strong>📈 Performans:</strong> Günlük %5 - %7.5 kâr hedefi (1.000 USD'ye kadar hesaplar).</p></div></div>
+    <div id="modal-emti" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-emti')">&times;</span><svg class="modal-graphic" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="0,88 20,68 40,74 60,54 80,44 100,28" fill="none" stroke="#ffd54f" stroke-width="4"/></svg><h3>📊 Emtialar 📊</h3><p><strong>Danışmanlık Soruları:</strong></p><ul><li>Hangi emtia ürünlerine yatırım yapmayı düşünüyorsunuz?</li><li>Vadeli işlem veya spot yatırım tercihiniz nedir?</li><li>Risk yönetimi stratejiniz nasıl olacak?</li></ul><p><strong>👤 Danışman Yetkinlikleri:</strong> Emtia piyasaları, teknik analiz, makroekonomik değerlendirme.</p><p><strong>📈 Performans:</strong> Günlük %5 - %7.5 kâr hedefi (1.000 USD'ye kadar hesaplar).</p></div></div>
+    <section class="cta-section" id="investment-form"><div class="container"><h2>Yatırım Yolculuğunuza Başlayın 🏁</h2><p>Sadece birkaç dakika içerisinde size özel yatırım stratejinizi belirleyin. Uzman danışmanlarımız sizinle iletişime geçsin.</p><a href="#" class="form-button" onclick="openForm()">Formu Doldur</a></div></section>
+    <footer><p>İletişim: <a href="mailto:finansdanismanlikdestek@gmail.com">finansdanismanlikdestek@gmail.com</a></p></footer>
     <script>
-        function openForm() {
-            // Formu yeni bir sekmede açar
-            window.open('https://forms.gle/xXvnXpErUDoouitY7', '_blank');
-        }
-
-        // Smooth scrolling for anchor links
+        function openForm() { window.open('https://forms.gle/xXvnXpErUDoouitY7', '_blank'); }
+        function openModal(id) { document.getElementById(id).style.display = 'block'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        window.onclick = function(event) {
+            ['modal-borsa','modal-kripto','modal-forex','modal-emti'].forEach(function(id) {
+                var modal = document.getElementById(id);
+                if (event.target == modal) { modal.style.display = 'none'; }
+            });
+        };
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') { e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' }); }
             });
         });
     </script>
